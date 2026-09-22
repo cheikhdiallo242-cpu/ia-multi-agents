@@ -14,7 +14,7 @@ def lancer_debat_ia(sujet_initial):
     # Agent 1 : Le Créateur
     prompt_agent_1 = f"Agis en tant que Créateur, propose une idée originale et inspirante sur le sujet suivant : {sujet_initial}"
     reponse_1 = client.models.generate_content(
-        model='gemini-2.0-flash',
+        model='gemini-3.6-flash',
         contents=prompt_agent_1,
     )
     texte_agent_1 = reponse_1.text
@@ -23,7 +23,7 @@ def lancer_debat_ia(sujet_initial):
     # Agent 2 : Le Critique
     prompt_agent_2 = f"Agis en tant que Critique. Analyse cette idée de manière constructive : {texte_agent_1}"
     reponse_2 = client.models.generate_content(
-        model='gemini-2.0-flash',
+        model='gemini-3.6-flash',
         contents=prompt_agent_2,
     )
     texte_agent_2 = reponse_2.text
@@ -32,7 +32,7 @@ def lancer_debat_ia(sujet_initial):
     # Agent 3 : Le Synthétiseur
     prompt_agent_3 = f"Agis en tant que Synthétiseur. Reprends l'idée du Créateur et les retours du Critique pour créer une version finale parfaite et équilibrée.\n\nIdée initiale :\n{texte_agent_1}\n\nCritique :\n{texte_agent_2}"
     reponse_3 = client.models.generate_content(
-        model='gemini-2.0-flash',
+        model='gemini-3.6-flash',
         contents=prompt_agent_3,
     )
     texte_agent_3 = reponse_3.text
